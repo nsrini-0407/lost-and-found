@@ -1,0 +1,107 @@
+/* ============================================================
+   GLOBAL STYLES
+   Design tokens, typography, base resets
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Montserrat', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+
+  --color-navy: #0C1628;
+  --color-navy-800: #1e293b;
+  --color-navy-700: #334155;
+  --color-amber: #E8A23C;
+  --color-amber-pale: #FDF3E3;
+}
+
+:root {
+  --navy:       #0C1628;
+  --navy-light: #1A2842;
+  --amber:      #E8A23C;
+  --amber-pale: #FDF3E3;
+  --white:      #FFFFFF;
+  --surface:    #F7F6F3;
+  --border:     rgba(0,0,0,0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--color-slate-100);
+    color: var(--color-navy-800);
+    line-height: 1.6;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+  }
+
+  /* Focus ring for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer utilities {
+  /* Smooth fade-in animation for page content */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Skeleton shimmer effect */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #e2e8f0 25%,
+      #f1f5f9 50%,
+      #e2e8f0 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
