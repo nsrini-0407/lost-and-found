@@ -14,7 +14,7 @@ function emailWrapper(content: string): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Westview Lost and Found</title>
+  <title>L & F Services</title>
 </head>
 <body style="
   margin: 0;
@@ -44,7 +44,7 @@ function emailWrapper(content: string): string {
                 letter-spacing: 0.14em;
                 text-transform: uppercase;
                 color: #E8A23C;
-              ">Westview High School</p>
+              ">L & F Services</p>
               <p style="
                 margin: 0;
                 font-size: 20px;
@@ -82,8 +82,7 @@ function emailWrapper(content: string): string {
                 color: #94a3b8;
                 line-height: 1.6;
               ">
-                This is an automated message from the Westview High School
-                Lost and Found system. Please do not reply to this email.
+                This is an automated message from L & F Services. Please do not reply to this email.
                 For assistance, contact the main office directly.
               </p>
             </td>

@@ -63,21 +63,7 @@ export default async function HomePage() {
   </div>
 </section>
 
-{/* Stats strip */}
-<div className="grid grid-cols-2 md:grid-cols-4 border-b border-border bg-white">
-  {[
-    { val: String(recentItems.length), label: 'Items listed' },
-    { val: '—', label: 'Returned this month' },
-    { val: '—', label: 'Pending review' },
-    { val: '30', label: 'Days items are held' },
-  ].map(({ val, label }) => (
-    <div key={label}
-         className="px-5 py-4 border-r border-border last:border-r-0">
-      <p className="font-display text-3xl text-navy leading-none">{val}</p>
-      <p className="text-[11px] text-slate-400 mt-1">{label}</p>
-    </div>
-  ))}
-</div>
+
 
       {/* How it works */}
       <section

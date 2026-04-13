@@ -36,7 +36,7 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row
                   items-center justify-between gap-3">
             <p className="text-sm text-slate-500">
-              &copy; {new Date().getFullYear()} Westview High School Lost &amp; Found
+              &copy; {new Date().getFullYear()} L & F Services
             </p>
             <div className="flex items-center gap-6">
               <p className="text-xs text-slate-400">
