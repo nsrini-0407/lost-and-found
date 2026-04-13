@@ -4,14 +4,9 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  console.log('MIDDLEWARE RUNNING:', pathname);
-
+  // Only protect admin pages — never intercept API routes
   if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
     const adminToken = request.cookies.get('admin_token')?.value;
-    
-    console.log('token:', adminToken);
-    console.log('expected:', process.env.ADMIN_SECRET_KEY);
-
     if (adminToken !== process.env.ADMIN_SECRET_KEY) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
@@ -24,5 +19,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin', '/admin/:path*'],  // add /admin without the slash
+  // Only run on admin pages — explicitly exclude api routes
+  matcher: ['/admin', '/admin/:path*'],
 };

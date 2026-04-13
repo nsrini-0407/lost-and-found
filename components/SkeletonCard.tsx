@@ -5,7 +5,7 @@ export default function SkeletonCard() {
   return (
     <article
       className="bg-white rounded-sm shadow-card overflow-hidden"
-      aria-hidden="true"   // hidden from screen readers during load
+      aria-hidden="true"
       aria-label="Loading item"
     >
       {/* Image placeholder */}

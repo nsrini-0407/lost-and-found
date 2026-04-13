@@ -34,23 +34,30 @@ export async function POST(request: NextRequest) {
   const supabase = await createAdminSupabaseClient();
 
   // Verify the item exists and is approved (not claimed/rejected)
-  const { data: item } = await supabase
-    .from('items')
-    .select('id, title, status')
-    .eq('id', data.item_id)
-    .single();
+  const { data: item, error: itemError } = await supabase
+  .from('items')
+  .select('id, title, status')
+  .eq('id', data.item_id)
+  .single();
 
-  if (!item || item.status !== 'approved') {
-    return NextResponse.json(
-      { error: 'This item is not available for claiming.' },
-      { status: 400 }
-    );
-  }
+  console.log('Item lookup result:', item);
+  console.log('Item lookup error:', itemError);
+  console.log('Item ID being searched:', data.item_id);
+
+if (!item || item.status !== 'approved') {
+  return NextResponse.json(
+    { error: 'This item is not available for claiming.' },
+    { status: 400 }
+  );
+}
 
   // Insert claim
   const { error: insertError } = await supabase
-    .from('claims')
-    .insert(data);
+  .from('claims')
+  .insert(data);
+
+  console.log('Claim insert error:', insertError);
+  console.log('Data being inserted:', data);
 
   if (insertError) {
     console.error('Claim insert failed:', insertError);
