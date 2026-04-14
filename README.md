@@ -71,3 +71,4 @@ Admin login key: the ADMIN_SECRET_KEY value from your .env.local
 ## Project Structure
 
 See folder structure in documentation.
+
