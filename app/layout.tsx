@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | L&F Services',
   },
   description:
-    'Browse, submit, and claim lost items at Westview High School.',
+    'Browse, submit, and claim lost items with L&F Services.',
 };
 
 export default function RootLayout({
